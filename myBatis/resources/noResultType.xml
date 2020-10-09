@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="noResultType">
+    <!--    mybatis 的mapper总是sql 很多黄色波浪下划线，其实IDEA alter enter设置sql 语言是mysql就行了的。-->
+    <select id="no">
+        --         CREATE DB 不指定resultmap看看，会发生什么
+        select * from department where id = #{id}
+    </select>
+</mapper>

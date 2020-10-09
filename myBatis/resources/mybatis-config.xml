@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE configuration
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+<!--TODO 很重要，一个dtd文件说明了 ？号表示顺序要严格， |管道符则不依赖元素的顺序！！！    -->
+    <settings>
+        <!--   个时候经常会需要把组合之后的完整sql调试出来比较好。     -->
+        <setting name="logImpl" value="STDOUT_LOGGING"/>
+    </settings>
+    <environments default="development">
+        <environment id="development">
+            <transactionManager type="JDBC"/>
+            <dataSource type="POOLED">
+                <property name="driver" value="com.mysql.cj.jdbc.Driver"/>
+                <property name="url" value="jdbc:mysql://localhost:3306/cache?characterEncoding=UTF-8&amp;serverTimezone=Asia/Shanghai"/>
+                <property name="username" value="tangxin"/>
+                <property name="password" value="123456"/>
+            </dataSource>
+        </environment>
+    </environments>
+
+    <mappers>
+<!--        所有的sql 都得先注册，不然都得报错找不到。-->
+<!--        使用接口方法-->
+        <mapper resource="Department.xml"/>
+<!--        使用xml -->
+        <mapper resource="Department2.xml"/>
+<!--        试试 resultMap 而不要实体类 会不会报错-->
+<!--FIXME     先注释先，因为mybatis一开始就加载了配置，这个有错，就无法完成配置，其它的也执行不下去的。   <mapper resource="NeedEntiy.xml"/>-->
+<!--        试试不要resultType 看看会不会报错-->
+        <mapper resource="noResultType.xml"/>
+<!--        ctrl 进去看到一些元素-->
+        <mapper resource="mapperELEMENT.xml"/>
+    </mappers>
+</configuration>

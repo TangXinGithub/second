@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="sql">
+<!--TODO    ctrl 点进去mapper 发现有一个sql 的属性，说明可以用sql  这只是一个在select等标签里 复用语句，并不能执行-->
+    <sql id="rt">
+        create database  IF NOT EXISTS mybatis
+    </sql>
+    <select id="rt">
+        select * from cache.department
+    </select>
+<!--    statementType：标记操作SQL的对象
+取值说明：
+1、STATEMENT:直接操作sql，不进行预编译，获取数据：$—Statement
+2、PREPARED:预处理，参数，进行预编译，获取数据：#—–PreparedStatement:默认
+3、CALLABLE:执行存储过程————CallableStatement
+————————————————
+版权声明：本文为CSDN博主「零学IT」的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。
+原文链接：https://blog.csdn.net/u014332200/java/article/details/76896359-->
+    <select id="createDB" resultType="map">
+# 当返回值是resultType是时候，倒是可以返回 ，resultMap 是要去找相关匹配的类型实体类之类的。
+        create database  IF NOT EXISTS mybatis
+    </select>
+</mapper>

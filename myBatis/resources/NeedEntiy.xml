@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="NeedEntiy">
+    <resultMap id="BLOG" type="blog">
+<!--    自定义resultType类型？可以不使用实体类来表达？ property就该是java类的成员变量吧 试试-->
+<!--FIXME        这个type="blog"应该是指实体类 ，还是不能省的。看来实体类是省不了的，毕竟还要返回给java处理嘛
+            不过可以自定义实体类（注解也是一样的道理吧，注解不过是指明，而已），也就是说，实体类不一定得与表对应。可以根据返回的结构定义。不单单是增删改查了
+-->
+        <id column="id" property="id" jdbcType="INTEGER"/>
+        <result column="departmentName" property="departmentName" jdbcType="VARCHAR"/>
+    </resultMap>
+
+    <select id="NeedEntiy" resultMap="blog">
+    select * from department where id = #{id}
+    </select>
+
+</mapper>

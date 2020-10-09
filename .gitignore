@@ -1,0 +1,6 @@
+# Project exclude paths
+/HTTP/target/
+/Lambda/target/
+/myBatis/target/
+/regular/target/
+/XML/target/
